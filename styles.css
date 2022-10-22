@@ -1,0 +1,15 @@
+.todo-item{
+    transition: opacity 0.5s ease-in-out;
+}
+
+.todo-title{
+    word-break: break-all;
+}
+
+.completed {
+    opacity: 0.5;
+}
+
+.completed .todo-title {
+    text-decoration: line-through;
+}
