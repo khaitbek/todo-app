@@ -29,6 +29,7 @@ todoList.addEventListener("click", (evt) => {
     }
     if (evt.target.matches("#deleteTodo")) {
         todos.splice(Number(evt.target.dataset.id), 1)
+        updateCounts()
         return renderTodos(todos)
     }if (evt.target.matches("#checkTodo")) {
         todos[Number(evt.target.dataset.id)].completed = !todos[Number(evt.target.dataset.id)].completed

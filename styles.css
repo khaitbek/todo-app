@@ -19,3 +19,6 @@ body{
 .completed .todo-title {
     text-decoration: line-through;
 }
+i{
+    pointer-events: none;
+}
