@@ -8,20 +8,36 @@
     <script src="./app.js" defer></script>
     <link href="./styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h1 class="text-center">Todo App</h1>
+    <h1 class="text-center fw-bold mt-5">Todo List</h1>
 
     <div class="container">
-        <form class="todo-form mb-5 input-group" id="todoForm">
+        <form class="todo-form mb-3 input-group" id="todoForm" autocomplete="off">
             <input class="form-control" name="user_todo" id="userTodoInput" type="text" placeholder="enter your todo" minlength="2" required>
-            <button class="btn btn-success">Add</button>
+            <button class="btn btn-success">
+                <i class="fa-solid fa-plus"></i>
+            </button>
         </form>
+
+        <div class="category-btns d-flex align-items-center justify-content-center gap-3 mb-3">
+            <button data-category="completed" class="btn position-relative btn-success">Completed </button>
+            <button data-category="uncompleted" class="btn position-relative btn-success">Uncompleted</button>
+            <button data-category="all" class="btn position-relative btn-success">All</button>
+        </div>
 
         <section class="todos" id="todoSection">
             <ul class="todo-list list-unstyled" id="todoList">
+               
             </ul>
         </section>
+        <dialog id="editDialog">
+            <form id="editForm" autocomplete="off">
+                <input id="editInput" type="text" minlength="2" required>
+                <button class="btn btn-success" id="editBtn" type="submit">Edit</button>
+            </form>
+        </dialog>
         <template data-todo>
             <li class="todo-item mb-3" id="todoItem">
                 <div class="d-flex flex-wrap align-items-center justify-content-between px-3 py-3 bg-dark bg-opacity-50 rounded-1 text-white">
@@ -29,11 +45,11 @@
 
                     <div class="d-flex align-items-center gap-3">
                         <button class="btn btn-danger" id="deleteTodo">
-                            Delete
+                            <i class="fa-solid fa-trash"></i>
                         </button>
 
-                        <button class="btn btn-success" id="saveTodo">Save</button>
-
+                        <button class="btn btn-warning" id="saveTodo"><i class="fa-regular fa-bookmark"></i></button>
+                        <button class="btn btn-success" id="editTodo"><i class="fa-solid fa-pen-to-square"></i></button>
                         <input class="form-check-input p-3" id="checkTodo" type="checkbox" name="user_todo_check" id="userTodoCheck">
                     </div>
                 </div>
