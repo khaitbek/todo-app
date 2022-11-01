@@ -7,10 +7,11 @@ const editForm = document.querySelector("#editForm")
 const editInput = document.querySelector("#editInput")
 const editBtn = document.querySelector("#editBtn")
 const categoryBtns = document.querySelectorAll("[data-category]")
-const todos = []
+const todos = JSON.parse(localStorage.getItem("todos")) || []
 const savedTodos = []
 
 updateCounts()
+renderTodos(todos)
 
 // events
 
@@ -95,6 +96,7 @@ function renderTodos(todos) {
 
         todoList.append(todoTemplate)
     })
+    localStorage.setItem("todos",JSON.stringify(todos))
 }
 
 function editTodo(editText){
